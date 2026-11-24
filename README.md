@@ -1,6 +1,10 @@
-# Konoha
+**Konoha**
 
-**Nombre:** Juanita Isabel Zambrano Maldonado  
-**Código:** 6014395
+Nombre: Juanita Isabel Zambrano Maldonado
+Código: 6014395
 
-**Arquitectura de software:** El proyecto está organizado por clases para que cada parte tenga una función específica y todas trabajen juntas. El programa comienza en main.cpp, donde se crea la ventana con GLFW, se cargan las funciones de OpenGL con GLAD y se ejecuta el ciclo de renderizado. La clase Camera recibe los movimientos del teclado y del mouse, calcula la orientación con yaw y pitch y proporciona la matriz de vista. La clase Model utiliza Assimp para cargar los tres archivos glTF de Konoha, Naruto y el pájaro, junto con sus texturas, vértices y normales; después prepara la geometría mediante VAO, VBO y EBO. La clase Shader se encarga de cargar, compilar y enlazar el vertex shader y el fragment shader, que permiten transformar los objetos y calcular sus colores e iluminación. BezierCurve calcula la trayectoria y la tangente que orienta al pájaro. Por su parte, Scene reúne los modelos, recibe las matrices de cámara y proyección, dibuja Konoha y aplica la rotación de Naruto sobre el eje Y y el movimiento del pájaro por la curva de Bézier. Finalmente, el programa libera los recursos utilizados al cerrar la ventana.
+Para desarrollar el proyecto utilicé **programación orientada a objetos**, organizando el código mediante una **arquitectura modular** basada en **clases**. En esta estructura apliqué el **encapsulamiento** al mantener los atributos y recursos internos de cada clase separados de los métodos públicos; por ejemplo, en **`Camera`** se administra internamente la posición y orientación de la cámara, mientras que desde **`main.cpp`** se utilizan sus métodos para actualizarla.
+
+También apliqué la **abstracción**, porque cada clase permite realizar una operación sin tener que repetir todos sus procedimientos internos. Por ejemplo, desde **`Scene`** puedo llamar al método **`load`** de **`Model`** para cargar los archivos glTF, sin tener que escribir nuevamente las operaciones de Assimp, texturas y buffers. Finalmente, utilicé la **composición** en la clase **`Scene`**, que contiene tres objetos de tipo **`Model`** y uno de tipo **`BezierCurve`**. Esto permite integrar la aldea, Naruto y el pájaro con sus respectivas transformaciones y cálculos de movimiento.
+
+Organicé las clases de esta manera porque necesitaba que la cámara, la carga de geometría, los shaders y los movimientos funcionaran como componentes independientes, pero conectados desde `main.cpp` y `Scene` para construir y renderizar la escena completa.
