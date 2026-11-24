@@ -1,0 +1,15 @@
+# Ejecutable y objetos compilados
+/main
+/main_prueba
+/build/
+*.o
+*.dSYM/
+
+# macOS y editores
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# No ignorar los recursos necesarios de los glTF: *.gltf, *.bin, *.png, *.jpeg.

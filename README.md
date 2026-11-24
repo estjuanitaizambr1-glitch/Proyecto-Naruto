@@ -1,0 +1,6 @@
+# Konoha
+
+**Nombre:** Juanita Isabel Zambrano Maldonado  
+**Código:** 6014395
+
+**Arquitectura de software:** El proyecto está organizado por clases para que cada parte tenga una función específica y todas trabajen juntas. El programa comienza en main.cpp, donde se crea la ventana con GLFW, se cargan las funciones de OpenGL con GLAD y se ejecuta el ciclo de renderizado. La clase Camera recibe los movimientos del teclado y del mouse, calcula la orientación con yaw y pitch y proporciona la matriz de vista. La clase Model utiliza Assimp para cargar los tres archivos glTF de Konoha, Naruto y el pájaro, junto con sus texturas, vértices y normales; después prepara la geometría mediante VAO, VBO y EBO. La clase Shader se encarga de cargar, compilar y enlazar el vertex shader y el fragment shader, que permiten transformar los objetos y calcular sus colores e iluminación. BezierCurve calcula la trayectoria y la tangente que orienta al pájaro. Por su parte, Scene reúne los modelos, recibe las matrices de cámara y proyección, dibuja Konoha y aplica la rotación de Naruto sobre el eje Y y el movimiento del pájaro por la curva de Bézier. Finalmente, el programa libera los recursos utilizados al cerrar la ventana.
